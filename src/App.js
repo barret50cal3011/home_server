@@ -1,24 +1,32 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { ItemCounter } from "./ItemCounter";
+import { SearchItem } from "./SearchItem";
+import { ItemList } from "./ItemList";
+import { Item } from "./Item";
+import { AddItemButton } from "./AddItemButton";
+import { RemoveItem } from "./RemoveItem";
+
+//import './App.css';
+
+const items = [
+  {name: "pan blanco", price: 10000},
+  {name: "jamon", price: 30000},
+  {name: "queso finess", price: 30000}
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <ItemCounter/>
+      <SearchItem/>
+      <ItemList>
+        {items.map(item => (
+          <Item key={item.name} name={item.name} price={item.price}/>
+        ))}
+      </ItemList>
+      <AddItemButton/>
+      <RemoveItem/>
+    </React.Fragment>
   );
 }
 
