@@ -1,0 +1,9 @@
+.RemoveItem{
+    display: flex;
+    background-color: #3F0071;
+    color: #FB2576;
+    width: 200px;
+    justify-content: center;
+    margin: 10px;
+    border-radius: 8px;
+}

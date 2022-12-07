@@ -6,7 +6,7 @@ import { Item } from "./Item";
 import { AddItemButton } from "./AddItemButton";
 import { RemoveItem } from "./RemoveItem";
 
-//import './App.css';
+import './App.css';
 
 const items = [
   {name: "pan blanco", price: 10000},
@@ -17,15 +17,19 @@ const items = [
 function App() {
   return (
     <React.Fragment>
-      <ItemCounter/>
-      <SearchItem/>
-      <ItemList>
-        {items.map(item => (
-          <Item key={item.name} name={item.name} price={item.price}/>
-        ))}
-      </ItemList>
-      <AddItemButton/>
-      <RemoveItem/>
+      <div className="App">
+        <ItemCounter size={items.length}/>
+        <SearchItem/>
+        <ItemList>
+          {items.map(item => (
+            <Item key={item.name} name={item.name} price={item.price}/>
+          ))}
+        </ItemList>
+        <div className="ButtonsSection">
+          <AddItemButton/>
+          <RemoveItem/>
+        </div>
+      </div>
     </React.Fragment>
   );
 }

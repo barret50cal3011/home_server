@@ -1,0 +1,30 @@
+.ItemList{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.MoveButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.PreviousButton{
+    color: #FB2576;
+    background-color: #3F0071;
+    width: 40px;
+    margin-right: 80px;
+    border-radius: 8px;
+
+}
+
+.NextButton{
+    color: #FB2576;
+    background-color: #3F0071;
+    width: 40px;
+    margin-left: 80px;
+    border-radius: 8px;
+}

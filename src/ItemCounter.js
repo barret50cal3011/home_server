@@ -1,8 +1,9 @@
 import React from "react";
+import "./ItemCounter.css"
 
-function ItemCounter(){
+function ItemCounter(props){
     return (
-        <h2>Hay 2 elementos en el mercado</h2>
+        <h2 className="ItemCounter">There are {props.size} elements in the list</h2>
     );
 }
 

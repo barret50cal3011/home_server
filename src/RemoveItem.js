@@ -1,8 +1,9 @@
 import React from "react";
+import "./RemoveItem.css"
 
 function RemoveItem(){
     return(
-        <button>Remove Item</button>
+        <button className="RemoveItem">Remove Item</button>
     );
 }
 
