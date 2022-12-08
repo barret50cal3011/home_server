@@ -36,7 +36,7 @@ function App() {
     <React.Fragment>
       <div className="App">
         <AddItem/>
-        <div className="Items">
+        <div className="ItemsSection">
           <ItemCounter total_items={items.length}/>
           <SearchItem 
             searchValue={searchValue}

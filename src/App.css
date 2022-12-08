@@ -2,8 +2,14 @@
   background-color: #111111;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   justify-content: center;
+}
+
+.ItemsSeection{
+  width: 50%;
+  display: flex;
+  flex-direction: column;
 }
 
 .ButtonsSection{

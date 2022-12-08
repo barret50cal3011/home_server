@@ -1,3 +1,42 @@
+.AddItemSection{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.AddTitle{
+    color: #FB2576;
+}
+
+.AddNameSection{
+    display: flex;
+    flex-direction: row;
+}
+
+.AddPriceSection{
+    display: flex;
+    flex-direction: row;
+}
+
+.AddInfo{
+    color:#FB2576;
+    margin: 10px;
+}
+
+.AddItemName{
+    background-color: #3F0071;
+    color: #FB2576;
+    margin-top: 10px;
+}
+
+.AddItemPrice{
+    background-color: #3F0071;
+    color: #FB2576;
+    margin: 10px;
+}
+
 .AddItemButton{
     display: flex;
     background-color: #3F0071;
