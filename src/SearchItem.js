@@ -1,20 +1,21 @@
 import React from "react";
 import "./SearchItem.css"
 
-function SearchItem(){
+function SearchItem({searchValue, setSearchValue}){
     const onSearchValueChange = (event) => {
-        console.log(event.target.value);
+        setSearchValue(event.target.value);
     }
 
-    return(
+    return[
         <div className="SearchItemSection">
             <p className="SearchItemTxt">What item are you looking for?</p>
             <input 
                 className="SearchItem"
+                value={searchValue}
                 onChange={onSearchValueChange}
             />
-        </div>
-    );
+        </div>,
+    ];
 }
 
 export {SearchItem};

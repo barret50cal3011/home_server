@@ -1,13 +1,17 @@
 import React from "react";
-import "./ItemList.css"
+import "./ItemList.css";
 
 function ItemList(props){
+    const [pageValue, setPage] = React.useState(0);
+
     const onPreviousClick = (() => {
-        console.log("move back");
+        if (pageValue > 0){
+            setPage(pageValue - 1);
+        }
     });
 
     const onNextClick = (() => {
-        console.log("move forward");
+        setPage(pageValue + 1);
     });
 
     return(
@@ -20,6 +24,7 @@ function ItemList(props){
                     className="PreviousButton"
                     onClick={onPreviousClick}
                 >&#60;&#60;</button>
+                <p class="PageNumber">{pageValue + 1}</p>
                 <button 
                     className="NextButton"
                     onClick={onNextClick}
