@@ -8,21 +8,22 @@ import { RemoveItem } from "./RemoveItem";
 
 import './App.css';
 
-function App() {
-  const default_items = [
-    {name: "pan blanco", price: 10000},
-    {name: "jamon", price: 30000},
-    {name: "queso finess", price: 30000},
-    {name: "papas fosforitos", price: 10000},
-    {name: "pan hamburguesa", price: 15000}
-  ];
+const default_items = [
+  {name: "pan blanco", price: 10000},
+  {name: "jamon", price: 30000},
+  {name: "queso finess", price: 30000},
+  {name: "papas fosforitos", price: 10000},
+  {name: "pan hamburguesa", price: 15000}
+];
 
+function App() {
   const [items, setItems] = React.useState(default_items);
   const [searchValue, setSearchValue] = React.useState("");
+  const [selected, setSelected] = React.useState("");
 
   let searched_items = [];
   if(searchValue.length === 0){
-    searched_items = default_items;
+    searched_items = items;
   }else{
     searched_items = items.filter((item) => {
       const item_text = item.name.toLocaleLowerCase();
@@ -31,6 +32,8 @@ function App() {
       return item_text.includes(search_txt);
     });
   }
+
+  console.log(items);
 
   return (
     <React.Fragment>
@@ -44,11 +47,22 @@ function App() {
           />
           <ItemList>
             {searched_items.map(item => (
-              <Item key={item.name} name={item.name} price={item.price}/>
+              <Item 
+                key={item.name} 
+                name={item.name} 
+                price={item.price} 
+                setSelected={setSelected} 
+                selected={selected}
+              />
             ))}
           </ItemList>
           <div className="ButtonsSection">
-            <RemoveItem/>
+            <RemoveItem 
+              selected={selected} 
+              setSelected={setSelected}
+              setItems={setItems}
+              items={items}
+            />
           </div>
         </div>
       </div>

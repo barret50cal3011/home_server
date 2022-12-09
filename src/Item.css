@@ -1,6 +1,5 @@
 .Item{
     color: #FB2576;
-    background-color: #150050;
     border-radius: 8px;
     padding: 8px;
     box-sizing: border-box;
@@ -10,4 +9,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.RadioItems{
+    display: none;
 }
