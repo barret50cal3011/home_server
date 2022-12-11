@@ -24,7 +24,7 @@ function ItemList(props){
                     className="PreviousButton"
                     onClick={onPreviousClick}
                 >&#60;&#60;</button>
-                <p class="PageNumber">{pageValue + 1}</p>
+                <p className="PageNumber">{pageValue + 1}</p>
                 <button 
                     className="NextButton"
                     onClick={onNextClick}

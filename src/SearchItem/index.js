@@ -6,7 +6,7 @@ function SearchItem({searchValue, setSearchValue}){
         setSearchValue(event.target.value);
     }
 
-    return[
+    return(
         <div className="SearchItemSection">
             <p className="SearchItemTxt">What item are you looking for?</p>
             <input 
@@ -14,8 +14,8 @@ function SearchItem({searchValue, setSearchValue}){
                 value={searchValue}
                 onChange={onSearchValueChange}
             />
-        </div>,
-    ];
+        </div>
+    );
 }
 
 export {SearchItem};
