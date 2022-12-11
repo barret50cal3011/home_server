@@ -1,10 +1,10 @@
 import React from "react";
-import { ItemCounter } from "./ItemCounter";
-import { SearchItem } from "./SearchItem";
-import { ItemList } from "./ItemList";
-import { Item } from "./Item";
-import { AddItem } from "./AddItem";
-import { RemoveItem } from "./RemoveItem";
+import { ItemCounter } from "../ItemCounter";
+import { SearchItem } from "../SearchItem";
+import { ItemList } from "../ItemList";
+import { Item } from "../Item";
+import { AddItem } from "../AddItem";
+import { RemoveItem } from "../RemoveItem";
 
 import './App.css';
 
@@ -33,12 +33,13 @@ function App() {
     });
   }
 
-  console.log(items);
-
   return (
     <React.Fragment>
       <div className="App">
-        <AddItem/>
+        <AddItem 
+          items={items} 
+          setItems={setItems}
+        />
         <div className="ItemsSection">
           <ItemCounter total_items={items.length}/>
           <SearchItem 
@@ -51,7 +52,7 @@ function App() {
                 key={item.name} 
                 name={item.name} 
                 price={item.price} 
-                setSelected={setSelected} 
+                setSelected={setSelected}
                 selected={selected}
               />
             ))}
