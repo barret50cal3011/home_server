@@ -1,23 +1,33 @@
 import React from "react";
-import { ItemCounter } from "../ItemCounter";
-import { SearchItem } from "../SearchItem";
-import { ItemList } from "../ItemList";
-import { Item } from "../Item";
-import { AddItem } from "../AddItem";
-import { RemoveItem } from "../RemoveItem";
+import { AppUI } from "./AppUI";
 
 import './App.css';
 
-const default_items = [
-  {name: "pan blanco", price: 10000},
-  {name: "jamon", price: 30000},
-  {name: "queso finess", price: 30000},
-  {name: "papas fosforitos", price: 10000},
-  {name: "pan hamburguesa", price: 15000}
-];
+function useLocalStorage(item_name, initalValue){
+  const local_storage_item = localStorage.getItem(item_name);
+  let parsed_item;
+  if(!local_storage_item){
+    parsed_item = initalValue;
+    localStorage.setItem(item_name, JSON.stringify(parsed_item));
+  }else{
+    parsed_item = JSON.parse(local_storage_item);
+  }
+
+  const [item, setItem] = React.useState(parsed_item);
+
+  const saveItem = (new_item) => {
+    const strJSON =JSON.stringify(new_item);
+    localStorage.setItem(item_name, strJSON);
+    setItem(new_item);
+  }
+
+  return[item, saveItem];
+}
 
 function App() {
-  const [items, setItems] = React.useState(default_items);
+
+  const [items, saveItems] = useLocalStorage("items_v0", []);
+  
   const [searchValue, setSearchValue] = React.useState("");
   const [selected, setSelected] = React.useState("");
 
@@ -34,40 +44,15 @@ function App() {
   }
 
   return (
-    <React.Fragment>
-      <div className="App">
-        <AddItem 
-          items={items} 
-          setItems={setItems}
-        />
-        <div className="ItemsSection">
-          <ItemCounter total_items={items.length}/>
-          <SearchItem 
-            searchValue={searchValue}
-            setSearchValue={setSearchValue}  
-          />
-          <ItemList>
-            {searched_items.map(item => (
-              <Item 
-                key={item.name} 
-                name={item.name} 
-                price={item.price} 
-                setSelected={setSelected}
-                selected={selected}
-              />
-            ))}
-          </ItemList>
-          <div className="ButtonsSection">
-            <RemoveItem 
-              selected={selected} 
-              setSelected={setSelected}
-              setItems={setItems}
-              items={items}
-            />
-          </div>
-        </div>
-      </div>
-    </React.Fragment>
+    <AppUI
+      items={items}
+      setItems={saveItems}      
+      searchValue={searchValue}
+      setSearchValue={setSearchValue}
+      setSelected={setSelected}
+      selected={selected}
+      searched_items={searched_items}
+    />
   );
 }
 
